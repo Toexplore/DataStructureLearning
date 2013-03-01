@@ -9,6 +9,9 @@
 **	Author:
 **		Íõ·½£¨ToExplore£©
 **
+**  E-mail:
+**      wangf_solar@163.com
+**
 **	History:
 **		2013-3-1
 */
