@@ -6,7 +6,7 @@
 **
 **	Details:
 **		可以通过链表或数组的形式来实现栈结构。栈的内容
-**		可以是任何数据结构，但在这里我们只用栈存储int型数据。
+**		可以是任何数据结构。
 **
 **	Author:
 **		王方（ToExplore）
@@ -19,27 +19,27 @@
 */
 
 #include "common.h"
-
+#include "Item.h"
 /*---------------------下面是用链表来实现栈结构------------------------*/
 
-typedef struct INT_NODE
+typedef struct _NODE
 {
-	int data;//这里只用来存储int型数据
-	struct INT_NODE *Next; //指向下一个结点
-}Int_Node,*pInt_Node;  //Int_Node等价于Struc INT_NODE，
-					   //*pInt_Node等价于struct INT_NODE*
+	void *data;//这里只用来存储int型数据
+	struct _NODE *Next; //指向下一个结点
+}Node;  
+					  
 
 
 typedef struct STACK_BY_LINK
 {
-	pInt_Node pTop; //栈的头
-	pInt_Node pBottom; //栈的底
+	Node *pTop; //栈的头
 	int length; //记录栈的长度
+	size_t elem_size; //每个节点数据的长度，初始化时使用
 }StackByLink, *pStackByLink;
 
-Status initStack(pStackByLink pStack);  //初始化
-Status pushStack(pStackByLink pStack,int data);  //将data压入到栈中
-Status popStack(pStackByLink pStack,int *pData);  //将栈顶结点弹出，并返回该结点的值
+Status initStack(pStackByLink pStack,size_t elem_size);  //初始化
+Status pushStack(pStackByLink pStack,void *data);  //将data压入到栈中
+Status popStack(pStackByLink pStack,void *pData);  //将栈顶结点弹出，并返回该结点的值
 bool isEmpty(pStackByLink pStack);  //栈是否为空
 Status clearStack(pStackByLink pStack); //清空栈，清除所有内容
 Status traveserStack(pStackByLink pStack); //遍历栈

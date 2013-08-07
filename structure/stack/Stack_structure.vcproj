@@ -180,6 +180,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Item.h"
+				>
+			</File>
+			<File
 				RelativePath=".\stack.h"
 				>
 			</File>
